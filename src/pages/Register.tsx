@@ -13,7 +13,11 @@ export default function Register(){
         e.preventDefault();
         try{
           const fd: User = {name, email, password};
+           setName("");
+          setEmail("");
+          setPassword("");
           await register(fd);
+         
           return fd;
         } catch (err){
             console.error(err);
@@ -34,7 +38,7 @@ export default function Register(){
                 <input className="border-b border-t-none border-slate-800/40 outline-none text-black p-3" type="email" placeholder="Email" name="email" required onChange={(e) => setEmail(e.target.value)}></input>
                 <input className="border-b border-t-none border-slate-800/40 outline-none text-black p-3" type="password" placeholder="Password" name="password"  onChange={(e) => setPassword(e.target.value)}required></input>
                 <button className="bg-red-400 text-white hover:bg-red-600 rounded-md cursor-pointer p-2" type="submit">Create account</button>
-                <p>Already have an account? <Link className="hover:underline text-red-400 hover:text-red-600" to="/Login">Login here</Link></p>
+                <p>Already have an account? <Link className="hover:underline text-red-400 hover:text-red-600" to="/Register">Login here.</Link></p>
             </form>
            </div>
 
