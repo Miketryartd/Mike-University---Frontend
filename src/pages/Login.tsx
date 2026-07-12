@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLogin } from "../hooks/useLogin";
 import type { User } from "../schemas/User";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ export default function Login(){
     const {login, loading, error } = useLogin();
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const [isCapsLockOn, setIsCapsLockOn] = useState<boolean>(false);
       const nav = useNavigate();
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>): Promise<User | void> => {
         e.preventDefault();
@@ -28,6 +29,13 @@ export default function Login(){
             console.error("Error logging in user", error);
         }
     }
+
+   const handleCheckCapsLock = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+   
+    const capsState = e.nativeEvent.getModifierState('CapsLock');
+    setIsCapsLockOn(capsState);
+  };
+   
     return (
         <>
         <div className="min-h-screen bg-gray-100">
@@ -41,7 +49,8 @@ export default function Login(){
                 
     
                 <input className="border-b border-t-none border-slate-800/40 outline-none text-black p-3" type="email" placeholder="Email" name="email" required onChange={(e) => setEmail(e.target.value)}></input>
-                <input className="border-b border-t-none border-slate-800/40 outline-none text-black p-3" type="password" placeholder="Password" name="password"  onChange={(e) => setPassword(e.target.value)}required></input>
+                <input onKeyDown={handleCheckCapsLock} onKeyUp={handleCheckCapsLock} className="border-b border-t-none border-slate-800/40 outline-none text-black p-3" type="password" placeholder="Password" name="password"  onChange={(e) => setPassword(e.target.value)}required/>
+                {isCapsLockOn && <p className=" p-2 text-red-400">Caps Lock On</p>}
                 <button className="bg-red-400 text-white hover:bg-red-600 rounded-md cursor-pointer p-2" type="submit">Create account</button>
                 <p>Don't have an account? <Link className="hover:underline text-red-400 transition hover:text-red-600" to="/Register">Register here.</Link></p>
             </form>
