@@ -127,7 +127,7 @@ export default function Login() {
               className="bg-red-400 text-white hover:bg-red-600 rounded-md cursor-pointer p-2"
               type="submit"
             >
-              Create account
+              Login
             </button>
             <p>
               Don't have an account?{" "}
