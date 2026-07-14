@@ -16,3 +16,17 @@ export const createAnnounce = async (Announcement: Announce ) => {
     throw err;
     }
 }
+
+export const getAnnouncement = async () => {
+    try{
+        const res = api.get('/api/announcements');
+        return res;
+    } catch (err){
+        console.error("Error fetching announcements from api", err);
+        if (axios.isAxiosError(err)){
+            const msg = err.response?.data?.message || err.message;
+            throw new Error(msg);
+        }
+        throw err;
+    }
+}
