@@ -20,6 +20,7 @@ export function AuthProvider({children}: {children: ReactNode}){
     const getUser = async () => {
      try{
         const res = await api.get('/api/user');
+   
         setUser(res.data);
        
      } catch (err){
