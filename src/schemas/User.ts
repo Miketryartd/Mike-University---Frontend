@@ -3,4 +3,9 @@ export interface User {
     name?: string;
     email: string;
     password: string;
+    role: string;
+ email_verified_at: string | null;
+  created_at: string;
+  updated_at: string;
+  
 }
