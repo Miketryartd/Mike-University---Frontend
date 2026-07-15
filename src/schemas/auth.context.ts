@@ -4,4 +4,5 @@ export interface AuthContextType {
     loading: boolean;
     setUser: (user: any) => void;
     getUser: () => Promise<void>;
+    hasRole: (role: string) => boolean;
 }
