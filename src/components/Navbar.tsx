@@ -1,5 +1,6 @@
 import Search from "./Search";
 import logo_2 from "../assets/images/logo_2.png";
+import ProfileMenu from "./ProfileMenu";
 export default function Navbar(){
 
     return (
@@ -11,6 +12,7 @@ export default function Navbar(){
             </div>
             <div className="flex items-center align-center">
                  <Search/>
+                 <ProfileMenu/>
             </div>
         </div>
         </div>

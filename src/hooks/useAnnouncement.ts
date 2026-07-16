@@ -9,13 +9,14 @@ export const useAnnouncement = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
     const [result, setResult] = useState<AnnounceContext[] | null>([]);
-    const announcements = async () => {
+    const announcements = async (page: number) => {
         setLoading(true);
         setError(null);
 
         try{
-
-           const res = await getAnnouncement();
+ 
+            
+           const res = await getAnnouncement(page);
            const ad = res.data?.announcements?.data || [];
            setResult(ad);
            return ad;
