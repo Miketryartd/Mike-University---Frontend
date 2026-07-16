@@ -26,7 +26,7 @@ export default function Sidebar(){
 
     return (
         <>
-        <div className="w-80 min-h-screen h-full bg-gray-100 fixed">
+    <div className={`w-80 transition ease-in min-h-screen h-full bg-gray-100 fixed ${isToggle === true ? 'w-80' : 'w-0'}`}>
             <ul className="m-5 gap-2 flex flex-col">
              {isToggle === true ? (
                  <>
@@ -36,7 +36,7 @@ export default function Sidebar(){
                  </>
              ): (
                <>
-                  <ul className="m-5 gap-2 flex flex-col "></ul>
+                  <div></div>
                </>
              )}
             </ul>
