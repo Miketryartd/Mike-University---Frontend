@@ -19,7 +19,7 @@ export const createAnnounce = async (Announcement: Announce ) => {
 
 export const getAnnouncement = async (page: number) => {
     try{
-        const res = await api.get(`/api/announcements/${page}`);
+        const res = await api.get(`/api/announcements/${page = 10}`);
         return res;
     } catch (err){
         console.error("Error fetching announcements from api", err);

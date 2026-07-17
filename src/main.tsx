@@ -8,6 +8,7 @@ import Register from './pages/Register.tsx'
 import Login from './pages/Login.tsx'
 import Dashboard from './pages/Dashboard.tsx'
 import { AuthProvider } from './context/auth.tsx'
+import AnnouncementDetail from './pages/AnnouncementDetail.tsx'
 
 function ProtectedRoute({children}: {children: ReactNode}){
   return <AuthProvider>{children}</AuthProvider>
@@ -35,6 +36,12 @@ const router = createBrowserRouter([
     path: "/Dashboard",
     element: <ProtectedRoute>
       <Dashboard/>
+    </ProtectedRoute>
+  },
+  {
+    path: "/Detail/:id",
+    element: <ProtectedRoute>
+      <AnnouncementDetail/>
     </ProtectedRoute>
   }
 
