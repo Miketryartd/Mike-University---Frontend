@@ -4,7 +4,7 @@ import type { Comment } from "../schemas/Comment";
 
 export const createComment = async (announcementId: number, comment: string) => {
     try {
-        const res = await api.post('/add-comment', {
+        const res = await api.post('/api/add-comment', {
             announcement_id: announcementId,
             comment: comment
         });
@@ -17,7 +17,7 @@ export const createComment = async (announcementId: number, comment: string) => 
 
 export const editComment = async (commentId: number, comment: string) => {
     try {
-        const res = await api.put(`/add-comment/${commentId}`, { comment });
+        const res = await api.put(`/api/add-comment/${commentId}`, { comment });
         return res.data;
     } catch (err) {
         console.error("Error editing comment:", err);
@@ -27,7 +27,7 @@ export const editComment = async (commentId: number, comment: string) => {
 
 export const deleteComment = async (commentId: number) => {
     try {
-        const res = await api.delete(`/comments/${commentId}`);
+        const res = await api.delete(`/api/comments/${commentId}`);
         return res.data;
     } catch (err) {
         console.error("Error deleting comment:", err);
@@ -37,7 +37,7 @@ export const deleteComment = async (commentId: number) => {
 
 export const getComments = async (announcementId: number) => {
     try {
-        const res = await api.get(`/comments/announcement/${announcementId}`);
+        const res = await api.get(`/api/comments/announcement/${announcementId}`);
         return res.data;
     } catch (err) {
         console.error("Error fetching comments:", err);

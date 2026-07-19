@@ -39,6 +39,8 @@ export function AuthProvider({children}: {children: ReactNode}){
     await api.get('/sanctum/csrf-cookie');
   };
 
+  
+
  const hasRole = (role: string | string[]): boolean => {
     if (!user || !user.role) return false;
     if (Array.isArray(role)) {
@@ -50,6 +52,7 @@ export function AuthProvider({children}: {children: ReactNode}){
       const initialize = async () => {
          await csrfHandShake();
          await getUser();
+         
       }
         initialize();
     }, []);

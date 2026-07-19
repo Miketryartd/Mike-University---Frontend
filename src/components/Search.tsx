@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useSearch } from "../hooks/useSearch"
+import { Link } from "react-router-dom";
 
 export default function Search(){
 
@@ -34,7 +35,7 @@ export default function Search(){
                     <div>
                       <ul className="">
                         {results.map((user, idx) => (
-                          <li className="border-b transition hover:bg-gray-100 cursor-pointer border-black/20 p-2" key={idx}>{user.name}</li>
+                          <li className="border-b transition hover:bg-gray-100 cursor-pointer border-black/20 p-2" key={idx}><Link to={`/Profile/${user.id}`}>{user.name}</Link></li>
                         ))}
                       </ul>
                     </div>
