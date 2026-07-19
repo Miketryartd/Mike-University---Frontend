@@ -10,6 +10,7 @@ export default function Sidebar(){
 
    const [isToggle, setIsToggle] = useState<boolean>(true);
     let sidebar = [
+        {to: "/Dashboard", label: "Home", role: ""},
         {to: "/Create-Announcement", label: "Create Announcement", role: 'teacher'},
         {to: "/Suggestions", label: "Suggestions", role: ""},
         {to: '/Classes', label: "Classes", role: ""}
