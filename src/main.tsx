@@ -10,6 +10,9 @@ import Dashboard from './pages/Dashboard.tsx'
 import { AuthProvider } from './context/auth.tsx'
 import AnnouncementDetail from './pages/AnnouncementDetail.tsx'
 import Profile from './pages/Profile.tsx'
+import Create from './pages/Create.announcement.tsx'
+import MakeClass from './pages/Create.class.tsx'
+import MakeAnnouncement from './pages/Create.announcement.tsx'
 
 function ProtectedRoute({children}: {children: ReactNode}){
   return <AuthProvider>{children}</AuthProvider>
@@ -50,6 +53,18 @@ const router = createBrowserRouter([
     path: "/Profile/:id",
     element: <ProtectedRoute>
       <Profile/>
+    </ProtectedRoute>
+  },
+  {
+    path: "/Create/Announcement",
+    element: <ProtectedRoute>
+      <MakeAnnouncement/>
+    </ProtectedRoute>
+  },
+    {
+    path: "/Create/Class",
+    element: <ProtectedRoute>
+       <MakeClass/>
     </ProtectedRoute>
   }
 

@@ -1,0 +1,19 @@
+import axios from "axios";
+import type { Class } from "../schemas/Class"
+import { api } from "./client";
+
+export const fetchClass = async (Class: Class) => {
+   try{
+
+    const res = await api.post('/api/create-class', Class);
+    const nd = res.data.class || res.data;
+    return nd;
+   } catch (err){
+     console.error("Error creating announcement", err);
+       if (axios.isAxiosError(err)){
+          const msg = err.response?.data?.message || err.message;
+            throw new Error(msg);
+    }
+    throw err;
+   }
+}

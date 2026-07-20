@@ -1,0 +1,40 @@
+import { useState } from "react";
+import { fetchClass } from "../api/api.class";
+import type { Class } from "../schemas/Class";
+export const useClass = () => {
+
+    const [loading ,setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<string | null>(null);
+
+    const generateCode = (length: number = 8): string => {
+        
+        const characters = import.meta.env.VITE_characters as string;
+        let result = '';
+        for (let i = 0; i < length; i++){
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return result;
+    }
+    const createClass = async (Class: Class) => {
+     setLoading(false);
+     setError(null);
+        try{
+            const classCode = generateCode(8);
+            const classData = {
+                ...Class,
+                class_code: classCode
+            };
+            const res = await fetchClass(classData);
+            return res;
+        } catch (err){
+            console.error("Error creating class", err);
+              setError(err instanceof Error ? err.message : "Failed to create class");
+            throw err;
+        } finally {
+              setLoading(false);
+        }
+        
+    }
+
+    return {loading, error, createClass};
+}
