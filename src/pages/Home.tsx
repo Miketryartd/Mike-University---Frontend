@@ -1,10 +1,19 @@
+import Header from "../components/Header";
+import Spotlight from "../components/Spotlight";
 
 
 export default function Home(){
 
+  
     return (
         <>
-        <h1>home</h1>
+        <div>
+          <Header/>
+          <div>
+           
+          </div>
+          <Spotlight/>
+        </div>
         </>
     )
 }
