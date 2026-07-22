@@ -16,4 +16,19 @@ export const fetchClass = async (Class: Class) => {
     }
     throw err;
    }
+};
+
+export const getClasses = async () => {
+  try{
+    const res = await api.get("/api/classes");
+    const ud = res.data.classes.data || res.data;
+    return ud;
+  } catch (err){
+      console.error("Error fetching announcement", err);
+       if (axios.isAxiosError(err)){
+          const msg = err.response?.data?.message || err.message;
+            throw new Error(msg);
+    }
+    throw err;
+  }
 }
