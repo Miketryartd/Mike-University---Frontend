@@ -6,7 +6,7 @@ export default function Navbar(){
     return (
         <>
         <div>
-        <div className="flex flex-row justify-between w-full p-5 bg-gray-100">
+        <div className="flex flex-row justify-between w-full p-5 bg-gray-100 fixed">
             <div>
                 <img loading="lazy" className="h-25 w-50 object-cover" src={logo_2}></img>
             </div>

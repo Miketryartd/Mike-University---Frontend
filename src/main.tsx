@@ -13,6 +13,7 @@ import Profile from './pages/Profile.tsx'
 import Create from './pages/Create.announcement.tsx'
 import MakeClass from './pages/Create.class.tsx'
 import MakeAnnouncement from './pages/Create.announcement.tsx'
+import Classes from './pages/Classes.tsx'
 
 function ProtectedRoute({children}: {children: ReactNode}){
   return <AuthProvider>{children}</AuthProvider>
@@ -65,6 +66,12 @@ const router = createBrowserRouter([
     path: "/Create/Class",
     element: <ProtectedRoute>
        <MakeClass/>
+    </ProtectedRoute>
+  },
+  {
+    path: "/Classes",
+    element: <ProtectedRoute>
+      <Classes/>
     </ProtectedRoute>
   }
 

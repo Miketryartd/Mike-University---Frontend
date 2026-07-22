@@ -14,7 +14,8 @@ export default function Sidebar(){
         {to: "/Create/Class", label: "Create Class", role: 'teacher'},
         {to: "/Create/Announcement", label: "Create Announcement", role: 'teacher'},
         {to: "/Suggestions", label: "Suggestions", role: ""},
-        {to: '/Classes', label: "Classes", role: ""}
+        {to: '/Classes', label: "Classes", role: "teacher" },
+        {to: "/Join", label: "Join", role: "student"}
     ];
 
     const vi = sidebar.filter((itm) => {
@@ -28,7 +29,7 @@ export default function Sidebar(){
 
     return (
         <>
-    <div className={`w-80 transition ease-in min-h-screen h-full bg-gray-100 fixed ${isToggle === true ? 'w-80' : 'w-0'}`}>
+    <div className={`w-80 transition top-30 ease-in min-h-screen h-full bg-gray-100 fixed ${isToggle === true ? 'w-80' : 'w-0'}`}>
             <ul className="m-5 gap-2 flex flex-col">
              {isToggle === true ? (
                  <>
