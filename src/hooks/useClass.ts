@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchClass } from "../api/api.class";
+import { fetchClass, getClasses } from "../api/api.class";
 import type { Class } from "../schemas/Class";
 export const useClass = () => {
 
@@ -36,5 +36,20 @@ export const useClass = () => {
         
     }
 
-    return {loading, error, createClass};
+    const fetchUserClasses = async () => {
+        setLoading(true);
+        setError(null);
+        try{
+            const res = await getClasses();
+            return res;
+        } catch (err){
+          console.error("Error creating class", err);
+              setError(err instanceof Error ? err.message : "Failed to fetch class");
+              throw err;
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    return {loading, error, createClass, fetchUserClasses};
 }
