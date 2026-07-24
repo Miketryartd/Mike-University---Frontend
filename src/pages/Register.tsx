@@ -15,10 +15,10 @@ export default function Register(){
         e.preventDefault();
         try{
           const fd: User = {name, email, password};
+          await register(fd);
            setName("");
           setEmail("");
           setPassword("");
-          await register(fd);
          
           return fd;
         } catch (err){

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { fetchClass, getClasses } from "../api/api.class";
 import type { Class } from "../schemas/Class";
+import { jClass } from "../api/api.class";
 export const useClass = () => {
 
     const [loading ,setLoading] = useState<boolean>(false);
@@ -51,5 +52,20 @@ export const useClass = () => {
         }
     }
 
-    return {loading, error, createClass, fetchUserClasses};
+     const joinClass = async (code: string) => {
+        setLoading(true);
+        setError(null)
+         try{
+            const res = await  jClass(code);
+            return res;
+         } catch (err){
+             console.error("Error creating class", err);
+              setError(err instanceof Error ? err.message : "Failed to fetch class");
+              throw err;
+         } finally {
+            setLoading(false)
+         }
+    }
+
+    return {loading, error, createClass, fetchUserClasses, joinClass};
 }

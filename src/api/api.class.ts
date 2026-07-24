@@ -32,3 +32,18 @@ export const getClasses = async () => {
     throw err;
   }
 }
+
+export const jClass = async (code: string) => {
+  try{
+    const res = await api.post("/api/join-class", code);
+    const ud = res.data.class || res.data;
+    return ud;
+  } catch (err){
+     console.error("Error Authenticating user", err);
+    if (axios.isAxiosError(err)){
+          const msg = err.response?.data?.message || err.message;
+            throw new Error(msg);
+    }
+    throw err;  
+  }
+}
