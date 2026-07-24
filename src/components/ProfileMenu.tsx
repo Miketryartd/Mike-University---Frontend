@@ -38,7 +38,7 @@ export default function ProfileMenu(){
         <>
 
            <button onClick={toggleMenu} className="cursor-pointer border bg-gray-200 shadow-md border-black transition ease-in-out hover:bg-white  p-5 rounded-full m-2 h-10 w-10 flex items-center justify-center font-bold">{getInitial()}</button>
-           
+          
         </>
     )
 }
