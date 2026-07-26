@@ -35,7 +35,7 @@ export const getClasses = async () => {
 
 export const jClass = async (code: string) => {
   try{
-    const res = await api.post("/api/join-class", code);
+    const res = await api.post("/api/join-class", {class_code: code});
     const ud = res.data.class || res.data;
     return ud;
   } catch (err){
