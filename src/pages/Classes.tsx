@@ -27,8 +27,8 @@ export default function Classes() {
       <>
         <Navbar />
         <Sidebar />
-        <div className="p-4">
-          <p>Loading classes...</p>
+        <div className="p-4 ml-64 flex justify-center items-center min-h-[60vh]">
+          <p className="text-gray-500 text-lg">Loading classes...</p>
         </div>
       </>
     );
@@ -39,8 +39,8 @@ export default function Classes() {
       <>
         <Navbar />
         <Sidebar />
-        <div className="p-4">
-          <p className="text-red-500">Error: {error}</p>
+        <div className="p-4 ml-64 flex justify-center items-center min-h-[60vh]">
+          <p className="text-red-500 text-lg">Error: {error}</p>
         </div>
       </>
     );
@@ -51,50 +51,55 @@ export default function Classes() {
       <Navbar />
       <Sidebar />
       <div className="p-4 ml-64">
-        <h1 className="text-2xl font-bold mb-6">My Classes</h1>
+        <div className="max-w-7xl mx-auto mt-20">
+          <h1 className="text-2xl font-bold mb-6 text-center">My Classes</h1>
 
-        {result && result.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {result.map((classItem, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
-              >
-                <h2 className="text-xl font-semibold text-blue-600 mb-2">
-                  {classItem.subject_name}
-                </h2>
+          {result && result.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {result.map((classItem, index) => (
+                <div
+                  key={index}
+                  className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
+                >
+                  <h2 className="text-xl font-semibold text-blue-600 mb-2">
+                    {classItem.subject_name}
+                  </h2>
+                  <h3>
+                    {classItem.members_count}
+                  </h3>
 
-                {classItem.class_code && (
-                  <p className="text-gray-600 mb-1">
-                    <span className="font-medium">Code:</span>{" "}
-                    {classItem.class_code}
-                  </p>
-                )}
+                  {classItem.class_code && (
+                    <p className="text-gray-600 mb-1">
+                      <span className="font-medium">Code:</span>{" "}
+                      {classItem.class_code}
+                    </p>
+                  )}
 
-                {classItem.user_email && (
-                  <p className="text-gray-600 mb-1">
-                    <span className="font-medium">Instructor:</span>{" "}
-                    {classItem.user_email}
-                  </p>
-                )}
+                  {classItem.user_email && (
+                    <p className="text-gray-600 mb-1">
+                      <span className="font-medium">Instructor:</span>{" "}
+                      {classItem.user_email}
+                    </p>
+                  )}
 
-                {classItem.created_at && (
-                  <p className="text-gray-500 text-sm mt-2">
-                    Created:{" "}
-                    {new Date(classItem.created_at).toLocaleDateString()}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-10">
-            <p className="text-gray-500 text-lg">No classes found</p>
-            <p className="text-gray-400">
-              You haven't created any classes yet.
-            </p>
-          </div>
-        )}
+                  {classItem.created_at && (
+                    <p className="text-gray-500 text-sm mt-2">
+                      Created:{" "}
+                      {new Date(classItem.created_at).toLocaleDateString()}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-10">
+              <p className="text-gray-500 text-lg">No classes found</p>
+              <p className="text-gray-400">
+                You haven't created any classes yet.
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
