@@ -1,5 +1,6 @@
 import Courses from "../components/Courses";
 import Header from "../components/Header";
+import Ideology from "../components/Ideology";
 import Spotlight from "../components/Spotlight";
 
 
@@ -17,6 +18,7 @@ export default function Home(){
           <Spotlight/>
 
           <Courses/>
+          <Ideology/>
         </div>
         </>
     )
