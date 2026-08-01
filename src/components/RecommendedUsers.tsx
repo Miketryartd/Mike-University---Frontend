@@ -28,7 +28,7 @@ export default function RecommendedUsers(){
     );
     
     return (
-        <div className="flex flex-col items-center justify-center w-full py-8 px-4">
+        <div className="flex flex-col items-center justify-center mt-20 w-full py-8 px-4">
             <h2 className="text-2xl font-bold mb-6 text-gray-800">People you may know</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl w-full">
                 {result.map((usr) => (
