@@ -21,3 +21,15 @@ export const apiRSUser = async () => {
     return []; 
   }
 }
+
+export const apiUpdateUserPassword = async (newPassword: string) => {
+
+  try{
+
+    const res = await api.patch("/api/user/update/password", {newPassword});
+    const ud = res.data?.data.user || res.data.user || res.data || [];
+    return ud;
+  } catch (err){
+    console.error("Error fetching api update for user", err);
+  }
+}
