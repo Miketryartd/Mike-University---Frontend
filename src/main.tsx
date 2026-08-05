@@ -15,6 +15,7 @@ import MakeClass from './pages/Create.class.tsx'
 import MakeAnnouncement from './pages/Create.announcement.tsx'
 import Classes from './pages/Classes.tsx'
 import Join from './pages/Join.tsx'
+import Settings from './pages/Settings.tsx'
 
 function ProtectedRoute({children}: {children: ReactNode}){
   return <AuthProvider>{children}</AuthProvider>
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
     element: <ProtectedRoute>
       <Profile/>
     </ProtectedRoute>
+  },
+  {
+       path: "/Settings",
+       element:   <Settings/>
   },
   {
     path: "/Create/Announcement",

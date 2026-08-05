@@ -1,6 +1,6 @@
 // useProfile.ts
 import { useState } from "react"
-import { apiUser } from "../api/api.user";
+import { apiUpdateUserPassword, apiUser } from "../api/api.user";
 
 export const useProfile = () => {
     const [loading, setLoading] = useState<boolean>(false);
@@ -23,5 +23,18 @@ export const useProfile = () => {
         }
     }
 
-    return { user, fetchProfile, loading, error };
+     const updateUserPassword = async (newPassword: string) => {
+        setLoading(true);
+        setError(null);
+        try{
+             await apiUpdateUserPassword(newPassword);
+             
+        } catch (err: any){
+            setError(err);
+        } finally{
+            setLoading(false);
+        }
+     }
+
+    return { user, fetchProfile, loading, error, updateUserPassword };
 }
