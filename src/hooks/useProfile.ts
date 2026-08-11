@@ -23,11 +23,11 @@ export const useProfile = () => {
         }
     }
 
-     const updateUserPassword = async (newPassword: string) => {
+     const updateUserPassword = async (oldPassword: string, newPassword: string) => {
         setLoading(true);
         setError(null);
         try{
-             await apiUpdateUserPassword(newPassword);
+             await apiUpdateUserPassword(oldPassword,newPassword);
              
         } catch (err: any){
             setError(err);

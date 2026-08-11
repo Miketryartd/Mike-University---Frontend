@@ -22,11 +22,11 @@ export const apiRSUser = async () => {
   }
 }
 
-export const apiUpdateUserPassword = async (newPassword: string) => {
+export const apiUpdateUserPassword = async (oldPassword: string, newPassword: string) => {
 
   try{
 
-    const res = await api.patch("/api/user/update/password", {newPassword});
+    const res = await api.patch("/api/user/update/password", {oldPassword,newPassword});
     const ud = res.data?.data.user || res.data.user || res.data || [];
     return ud;
   } catch (err){

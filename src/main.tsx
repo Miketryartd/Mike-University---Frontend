@@ -60,7 +60,9 @@ const router = createBrowserRouter([
   },
   {
        path: "/Settings",
-       element:   <Settings/>
+       element:  <ProtectedRoute>
+         <Settings/>
+       </ProtectedRoute>
   },
   {
     path: "/Create/Announcement",
